@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cotizador de Seguro de Vida</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="contenedor">
+    <h1>Cotizador de Seguro de Vida</h1>
+    <h2>Básico Estandarizado</h2>
+
+    <div class="formulario">
+      <label>Nombre:</label>
+      <input type="text" id="nombre" placeholder="Nombre del asegurado">
+
+     <label>Edad:</label>
+<input type="number" id="edad" value="18" min="18" max="65">
+
+      <label>Sexo:</label>
+      <select id="sexo">
+        <option>Hombre</option>
+        <option>Mujer</option>
+      </select>
+
+    <label>Suma asegurada:</label>
+<select id="suma">
+  <option value="100000">$100,000</option>
+  <option value="200000">$200,000</option>
+  <option value="300000">$300,000</option>
+</select>
+
+      <label>Tasa de interés:</label>
+      <input type="number" id="interes" value="7.19">
+
+      <button onclick="calcularSeguro()">Calcular</button>
+
+      <label>Gastos Administrativos (%):</label>
+<input type="number" id="gastosAdmin" value="7" oninput="actualizarAlfa()">
+
+<label>Gastos Adquisitivos (%):</label>
+<input type="number" id="gastosAdq" value="10" oninput="actualizarAlfa()">
+
+<label>Utilidades (%):</label>
+<input type="number" id="utilidades" value="8" oninput="actualizarAlfa()">
+
+<label>Alfa (%):</label>
+<input type="number" id="alfa" value="25" readonly>
+    </div>
+
+    <div class="resultados">
+      <h3>Prima Calculada</h3>
+      <p>Prima Neta Nivelada: $<span id="pnn">0.00</span></p>
+      <p>Prima Tarifa: $<span id="tarifa">0.00</span></p>
+      <p class="total">Prima Total: $<span id="total">0.00</span></p>
+    </div>
+
+    <div class="tabla">
+      <h3>Reserva Matemática</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Edad</th>
+            <th>t</th>
+            <th>A(x+t:n-t)</th>
+            <th>a(x+t:n-t)</th>
+            <th>Reserva</th>
+          </tr>
+        </thead>
+        <tbody id="tablaReserva"></tbody>
+      </table>
+    </div>
+
+    <div class="grafica">
+      <h3>Evolución de la Reserva Matemática</h3>
+      <canvas id="graficaReserva"></canvas>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
