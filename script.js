@@ -29,7 +29,18 @@ if (edad < 18 || edad > 65 || isNaN(edad)) {
     document.getElementById("total").textContent = primaTarifa.toFixed(2);
 
     // Datos de reserva obtenidos en Excel
-    const edades = [18, 19, 20, 21, 22, 23];
+    const edad = Number(document.getElementById("edad").value);
+
+const edades = [
+    edad,
+    edad + 1,
+    edad + 2,
+    edad + 3,
+    edad + 4,
+    edad + 5
+];
+
+const t = [0, 1, 2, 3, 4, 5];
     const t = [0, 1, 2, 3, 4, 5];
 
     const A = [
