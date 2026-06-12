@@ -201,3 +201,8 @@ function calcularSeguro() {
         }
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("btnCalcular").addEventListener("click", calcularSeguro);
+    actualizarAlfa();
+});
